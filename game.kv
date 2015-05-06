@@ -1,0 +1,24 @@
+<InvadersGame>:
+    PlayerShip:
+        id: player_ship
+    PlayerMissiles:
+        id: player_missiles
+
+<PlayerShip>:
+    canvas:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<PlayerMissile>:
+    size: 10, 10
+    canvas:
+        Ellipse:
+            pos: self.pos
+            size: self.size
+
+<AlienShip>:
+    canvas:
+        Rectangle:
+            pos: self.pos
+            size: self.size
