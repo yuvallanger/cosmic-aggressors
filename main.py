@@ -42,7 +42,7 @@ class PlayerMissiles(Widget):
     pass
 
 
-class InvadersGame(Widget):
+class AggressorsGame(Widget):
     def init_ship(self):
         self.ids.player_ship.size = 20, 15
         self.ids.player_ship.center_x = self.center_x
@@ -72,7 +72,7 @@ class GameApp(App):
     def build(self):
         params.init()
 
-        game = InvadersGame()
+        game = AggressorsGame()
 
         game.size = 600, 400
 
