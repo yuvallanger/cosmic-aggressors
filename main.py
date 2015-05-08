@@ -14,7 +14,7 @@ from kivy.logger import Logger
 
 
 class PlayerShip(Widget):
-    velocity = NumericProperty(2)
+    velocity = NumericProperty(0)
 
     def move(self):
         self.x += self.velocity
