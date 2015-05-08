@@ -51,7 +51,7 @@ class AggressorsGame(Widget):
         self.ids.player_ship.y = 10
 
     def fire_player_missile(self, *args):
-        if len(self.ids.player_missiles.children) <= params.max_missile_num:
+        if len(self.ids.player_missiles.children) < params.max_missile_num:
             player_missile = PlayerMissile()
             player_missile.center_x = self.ids.player_ship.center_x
             player_missile.y = self.ids.player_ship.top
