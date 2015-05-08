@@ -9,6 +9,8 @@ from kivy.clock import Clock
 from kivy.core.window import Window
 from kivy.properties import NumericProperty  #, ObjectProperty  #, ReferenceListProperty
 from kivy.uix.widget import Widget
+from kivy.metrics import Metrics
+from kivy.logger import Logger
 
 
 class PlayerShip(Widget):
@@ -87,7 +89,23 @@ class GameApp(App):
 
 class Params(object):
     def init(self):
-        pass
+        self.bg_width, self.bg_height = 600, 400
+        self.width, self.height = Window.size
+        self.center = Window.center
+        ws = float(self.width) / self.bg_width
+        hs = float(self.height) / self.bg_height
+        self.scale = min(ws, hs)
+        self.max_missile_num = 3
+        Logger.debug(
+            "size={Window.size}; "
+            "dpi={Metrics.dpi}; "
+            "density={Metrics.dpi}; "
+            "SCALE={self.scale}".format(
+                Window=Window,
+                Metrics=Metrics,
+                self=self,
+            )
+        )
 
 
 params = Params()
