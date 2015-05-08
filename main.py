@@ -68,7 +68,22 @@ class AggressorsGame(Widget):
     def update(self, dt):
         self.ids.player_ship.move()
         self.move_missiles()
-        print([(i, m.pos, m.size) for (i, m) in enumerate(self.ids.player_missiles.children)])
+        Logger.debug("{}".format([(i, m.pos, m.size) for (i, m) in enumerate(self.ids.player_missiles.children)]))
+
+    def on_size(self, *args):
+        Logger.debug(
+            "size={Window.size}; "
+            "dpi={Metrics.dpi}; "
+            "density={Metrics.dpi}; "
+            "SCALE={self.scale}".format(
+                Window=Window,
+                Metrics=Metrics,
+                self=params,
+            ))
+
+    def _on_keyboard_down(self, window, b, keycode, text, modifiers):
+        Logger.debug("{}".format(type(b)))
+        Logger.debug("{}".format([window, b, keycode, text, modifiers]))
 
 
 class GameApp(App):
