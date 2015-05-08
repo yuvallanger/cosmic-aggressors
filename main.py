@@ -83,6 +83,8 @@ class AggressorsGame(Widget):
 
     def _on_keyboard_down(self, window, b, keycode, text, modifiers):
         Logger.debug("{}".format(type(b)))
+        if text == u" ":
+            self.fire_player_missile()
         Logger.debug("{}".format([window, b, keycode, text, modifiers]))
 
 
@@ -97,8 +99,9 @@ class GameApp(App):
         game.init_ship()
         game.init_aliens()
 
+        Window.bind(on_key_down=game._on_keyboard_down)
+
         Clock.schedule_interval(game.update, 1.0 / 60.)
-        Clock.schedule_interval(game.fire_player_missile, 1)
 
         return game
 
