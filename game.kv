@@ -1,23 +1,28 @@
-<AggressorsGame>:
+<CosmicAggressorsGame>:
+    id: game
+    size: "600", "400"
+    canvas:
     PlayerShip:
         id: player_ship
-    PlayerMissiles:
-        id: player_missiles
+    Aggressors:
+        id: aggressors
 
 <PlayerShip>:
+    size: 0.05, 0.05
     canvas:
         Rectangle:
             pos: self.pos
             size: self.size
 
 <PlayerMissile>:
-    size: 10, 10
-    canvas:
+    size: 0.1, 0.1
+    canvas.before:
         Ellipse:
             pos: self.pos
             size: self.size
 
-<AlienShip>:
+<Aggressor>:
+    size: 0.1, 0.1
     canvas:
         Rectangle:
             pos: self.pos
